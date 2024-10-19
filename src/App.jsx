@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function App() {
-    const [showStory,setStory] = useState(false);
+    const [showStory,setShowStory] = useState(false);
     const [xItem,setXItem] = useState("");
     const [yItem,setYItem] = useState("");
     const [zItem,setZItem] = useState("");
@@ -20,6 +20,13 @@ export default function App() {
       return array[random];
     }
 
+    function buttonClick(){
+      setXItem(randomValueFromArray(xItems));
+      setYItem(randomValueFromArray(yItems));
+      setZItem(randomValueFromArray(zItems));
+      setShowStory(true)
+    }
+
     return (
       <>
         <div>
@@ -33,7 +40,7 @@ export default function App() {
           <input type="radio" value="uk" checked={ukus === "uk"} />
         </div>
         <div>
-          <button>Generate random story</button>
+          <button onClick={buttonClick}>Generate random story</button>
         </div>
         {showStory && (
           <p>
