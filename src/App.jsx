@@ -1,11 +1,19 @@
 import { useState } from "react";
 
 export default function App() {
-    const showStory = false;
-    const xItem = "";
-    const yItem = "";
-    const zItem = "";
-    const ukus = "us";
+    const [showStory,setStory] = useState(false);
+    const [xItem,setXItem] = useState("");
+    const [yItem,setYItem] = useState("");
+    const [zItem,setZItem] = useState("");
+    const [ukus,setUkus] = useState("us");
+
+    const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+    const yItems = ["the soup kitchen", "Disneyland", "the White House"];
+    const zItems = [
+      "spontaneously combusted",
+      "melted into a puddle on the sidewalk",
+      "turned into a slug and crawled away"
+    ];
 
     function randomValueFromArray(array){
       const random = Math.floor(Math.random()*array.length);
