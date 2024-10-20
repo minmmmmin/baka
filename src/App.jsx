@@ -24,6 +24,10 @@ export default function App() {
       }
     }
 
+    function handleCountryChange(event) {
+      setUkus(event.target.value);
+    }
+
 
 
     function randomValueFromArray(array){
@@ -47,9 +51,9 @@ export default function App() {
         </div>
         <div>
           <label htmlFor="us">US</label>
-          <input type="radio" value="us" checked={ukus === "us"} onChange={converUnits}  />
+          <input type="radio" value="us" checked={ukus === "us"} onChange={handleCountryChange}  />
           <label htmlFor="uk">UK</label>
-          <input type="radio" value="uk" checked={ukus === "uk"} onChange={converUnits}/>
+          <input type="radio" value="uk" checked={ukus === "uk"} onChange={handleCountryChange}/>
         </div>
         <div>
           <button onClick={buttonClick}>Generate random story</button>
