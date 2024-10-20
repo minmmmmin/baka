@@ -6,6 +6,7 @@ export default function App() {
     const [yItem,setYItem] = useState("");
     const [zItem,setZItem] = useState("");
     const [ukus,setUkus] = useState("us");
+    const [customName, setCustomName] = useState("Bob");
 
     const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
     const yItems = ["the soup kitchen", "Disneyland", "the White House"];
@@ -14,6 +15,16 @@ export default function App() {
       "melted into a puddle on the sidewalk",
       "turned into a slug and crawled away"
     ];
+
+    function result(event){
+      if(event.target.value !== ""){
+        setCustomName(event.target.value);
+      }else{
+        setCustomName("Bob");
+      }
+    }
+
+
 
     function randomValueFromArray(array){
       const random = Math.floor(Math.random()*array.length);
@@ -27,17 +38,18 @@ export default function App() {
       setShowStory(true)
     }
 
+
     return (
       <>
         <div>
-          <label htmlFor="customname">Enter custom name:</label>
-          <input type="text" placeholder="" />
+          <label htmlFor="customame">Enter custom name:</label>
+          <input type="text" placeholder="" onChange={result}/>
         </div>
         <div>
           <label htmlFor="us">US</label>
-          <input type="radio" value="us" checked={ukus === "us"} />
+          <input type="radio" value="us" checked={ukus === "us"} onChange={converUnits}  />
           <label htmlFor="uk">UK</label>
-          <input type="radio" value="uk" checked={ukus === "uk"} />
+          <input type="radio" value="uk" checked={ukus === "uk"} onChange={converUnits}/>
         </div>
         <div>
           <button onClick={buttonClick}>Generate random story</button>
@@ -46,7 +58,7 @@ export default function App() {
           <p>
             It was 94 fahrenheit outside, so {xItem} went for a walk. When they
             got to {yItem}, they stared in horror for a few moments, then {zItem}.
-            Bob saw the whole thing, but was not surprised — {xItem} weighs 300
+            {customName} saw the whole thing, but was not surprised — {xItem} weighs 300
             pounds, and it was a hot day.
           </p>
         )}
