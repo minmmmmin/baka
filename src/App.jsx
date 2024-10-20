@@ -16,6 +16,10 @@ export default function App() {
       "turned into a slug and crawled away"
     ];
 
+    function handleCountryChange(event) {
+      setUkus(event.target.value);
+    }
+
     function result(event){
       if(event.target.value !== ""){
         setCustomName(event.target.value);
@@ -23,12 +27,6 @@ export default function App() {
         setCustomName("Bob");
       }
     }
-
-    function handleCountryChange(event) {
-      setUkus(event.target.value);
-    }
-
-
 
     function randomValueFromArray(array){
       const random = Math.floor(Math.random()*array.length);
@@ -42,6 +40,14 @@ export default function App() {
       setShowStory(true)
     }
 
+    function convertUnits(text) {
+      if (ukus === "uk") {
+        return text
+          .replace("94 fahrenheit", "34 celsius")
+          .replace("300 pounds", "21 stone");
+      }
+      return text;
+    }
 
     return (
       <>
@@ -60,10 +66,8 @@ export default function App() {
         </div>
         {showStory && (
           <p>
-            It was 94 fahrenheit outside, so {xItem} went for a walk. When they
-            got to {yItem}, they stared in horror for a few moments, then {zItem}.
-            {customName} saw the whole thing, but was not surprised — {xItem} weighs 300
-            pounds, and it was a hot day.
+            {convertUnits(
+               `It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. ${customName} saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.`          )}
           </p>
         )}
       </>
