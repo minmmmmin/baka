@@ -1,8 +1,9 @@
 {
-  "name": "baka",
+  "name": "server-tutorial",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "serve": "netlify functions:serve",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -15,9 +16,9 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.2",
+    "@vitejs/plugin-react": "^4.3.3",
     "netlify-cli": "^17.37.2",
-    "vite": "^5.4.8"
+    "vite": "^5.4.10"
   },
   "description": ""
 }
