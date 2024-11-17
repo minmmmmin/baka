@@ -15,7 +15,7 @@ export default function App() {
 
     async function buttonClick() {
         try {
-            const response = await fetch("/.netlify/functions/server", {
+            const response = await fetch("/.netlify/functions/baka", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
