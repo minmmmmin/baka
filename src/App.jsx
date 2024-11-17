@@ -58,3 +58,4 @@ export default function App() {
         </>
     );
 }
+//ターミナルで run devしたのを止めないでまた新しく run devしたときとかに、localhostが複数立ち上がって見てるURL間違えたみたいな話。気を付ける。
