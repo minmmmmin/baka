@@ -14,16 +14,25 @@ export default function App() {
     }
 
     async function buttonClick() {
-        const response = await fetch("/.netlify/functions/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ customName, ukus })
-        });
-        
-        const data = await response.json();
-        setStory(data.story);
+        try {
+            const response = await fetch("/.netlify/functions/server", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ customName, ukus })
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            setStory(data.story);
+        } catch (error) {
+            console.error("Error fetching the story:", error);
+            setStory("Failed to fetch the story. Please try again later.");
+        }
     }
 
     return (
